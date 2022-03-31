@@ -1,7 +1,7 @@
 // Load aws sdk
 var aws = require('aws-sdk');
 
-// Load aws Rekognition object
+// Load aws Rekognition instance
 var rekognition = new aws.Rekognition();
 
 // Set aws lambda handler function
