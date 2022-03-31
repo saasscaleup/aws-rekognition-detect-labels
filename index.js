@@ -8,7 +8,7 @@ var rekognition = new aws.Rekognition();
 exports.handler = (event, context, callback) => {
   
     // Buffer created to receive the encode base64 image
-    var buffer = new Buffer.from(event.imageFormat, 'base64');
+    var buffer = new Buffer.from(event.image_base64, 'base64');
     
     // aws Rekognition required params
     var params = {
@@ -27,7 +27,7 @@ exports.handler = (event, context, callback) => {
           
             // Prepare error response
             var ErrorOcurred = {
-              "fileName": event.fileName,
+              "file_name": event.file_name,
               "Error":{
                 "Error": error.stack,
                 "Description": error
@@ -43,7 +43,7 @@ exports.handler = (event, context, callback) => {
             
             // Prepare success response
             var res = {
-                "fileName": event.fileName,
+                "file_name": event.file_name,
                 "Tags": data
             };
           
